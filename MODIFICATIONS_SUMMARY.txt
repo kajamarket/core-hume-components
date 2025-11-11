@@ -1,0 +1,9 @@
+Created files:
+app/api/metrics/route.ts
+dashboard_vite/src/hooks/useHumeMetrics.ts
+dashboard_vite/src/components/HumeMetricsCard.tsx
+dashboard_vite/package.json
+MODIFICATIONS_SUMMARY.json
+
+Modified files:
+README.md

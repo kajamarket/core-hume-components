@@ -1,0 +1,12 @@
+{
+  "created": [
+    "app/api/metrics/route.ts",
+    "dashboard_vite/src/hooks/useHumeMetrics.ts",
+    "dashboard_vite/src/components/HumeMetricsCard.tsx",
+    "dashboard_vite/package.json"
+  ],
+  "modified": [
+    "README.md"
+  ],
+  "deleted": []
+}
