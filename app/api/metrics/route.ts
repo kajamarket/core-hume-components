@@ -55,16 +55,20 @@ export async function GET() {
       notes: null,
     }
 
-    let tokenInfo: { token?: string; expiresAt?: string | null } | null = null
     try {
-      tokenInfo = await getHumeAccessToken()
-      if (tokenInfo && tokenInfo.token) {
-        metrics.token.valid = true
-        metrics.token.expiresAt = tokenInfo.expiresAt ?? null
-      } else {
-        metrics.token.valid = false
-        metrics.notes = 'getHumeAccessToken returned no token'
-      }
+  const token = await getHumeAccessToken()
+  if (token && typeof token === 'string') {
+    metrics.token.valid = true
+    metrics.token.expiresAt = null
+  } else {
+    metrics.token.valid = false
+    metrics.notes = 'getHumeAccessToken returned no token'
+  }
+} catch (err) {
+  metrics.token.valid = false
+  metrics.notes = `Error fetching token: ${err instanceof Error ? err.message : String(err)}`
+}
+
     } catch (err: any) {
       metrics.token.valid = false
       metrics.notes = `token error: ${err?.message ?? String(err)}`
