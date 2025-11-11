@@ -1,6 +1,7 @@
 // app/api/metrics/route.ts
 import { NextResponse } from 'next/server'
-import getHumeAccessToken from '@/utils/getHumeAccessToken'
+import { getHumeAccessToken } from '@/utils/getHumeAccessToken'
+
 
 const CACHE_TTL_MS = Number(process.env.METRICS_CACHE_TTL_MS ?? 15000)
 const HUME_TEST_PATH = process.env.METRICS_HUME_TEST_PATH ?? 'https://api.hume.ai/v0/evi'
